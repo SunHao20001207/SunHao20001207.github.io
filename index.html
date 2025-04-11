@@ -1,1 +1,166 @@
-<h1>欢迎！</h1>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给特别的你</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        h1 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        p {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .heart {
+            font-size: 40px;
+            color: #e74c3c;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        .btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+        }
+        
+        .petals {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .petal {
+            position: absolute;
+            background-color: #ffb6c1;
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.7;
+            animation: falling linear infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes falling {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="petals" id="petals"></div>
+    
+    <div class="container">
+        <h1>亲爱的<span id="name">你</span></h1>
+        <p>
+            遇见你是我生命中最美好的意外<br>
+            你的笑容像阳光一样温暖我的心<br>
+            和你在一起的每一刻都让我感到幸福
+        </p>
+        <div class="heart">❤</div>
+        <p>
+            我想对你说...<br>
+            我<span style="color: #e74c3c; font-weight: bold;">喜欢你</span>
+        </p>
+        <button class="btn" onclick="changeName()">点击这里</button>
+    </div>
+
+    <script>
+        // 创建花瓣
+        function createPetals() {
+            const petalsContainer = document.getElementById('petals');
+            const petalCount = 15;
+            
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                
+                // 随机大小
+                const size = Math.random() * 15 + 5;
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size}px`;
+                
+                // 随机位置
+                petal.style.left = `${Math.random() * 100}%`;
+                petal.style.top = `${Math.random() * -20}vh`;
+                
+                // 随机动画持续时间
+                const duration = Math.random() * 10 + 5;
+                petal.style.animationDuration = `${duration}s`;
+                
+                // 随机延迟
+                petal.style.animationDelay = `${Math.random() * 5}s`;
+                
+                petalsContainer.appendChild(petal);
+            }
+        }
+        
+        // 更改名字
+        function changeName() {
+            const name = prompt("请输入你的名字", "亲爱的");
+            if (name) {
+                document.getElementById('name').textContent = name;
+            }
+        }
+        
+        // 页面加载后创建花瓣
+        window.onload = createPetals;
+    </script>
+</body>
+</html>
