@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>给特别的你</title>
+    <title>致黄楚娴</title>
     <style>
         body {
             margin: 0;
@@ -12,58 +12,55 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(150deg, #e3f6ff 0%, #b3e0ff 100%);
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
             overflow: hidden;
         }
         
         .container {
             text-align: center;
-            max-width: 600px;
-            padding: 40px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 680px;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(100, 181, 246, 0.2);
             position: relative;
-            animation: fadeIn 1.5s ease-out;
+            animation: fadeIn 2s ease-out;
+            backdrop-filter: blur(10px);
         }
         
         h1 {
-            color: #e74c3c;
-            margin-bottom: 20px;
-            font-weight: 300;
+            color: #1976d2;
+            margin-bottom: 25px;
+            font-weight: 400;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(25, 118, 210, 0.1);
         }
         
         p {
-            color: #333;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 30px;
+            color: #456;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin: 25px 0;
+            text-align: justify;
+            padding: 0 20px;
         }
         
+        .heart-container {
+            position: relative;
+            margin: 30px 0;
+        }
+
         .heart {
-            font-size: 40px;
-            color: #e74c3c;
-            animation: heartbeat 1.5s infinite;
+            font-size: 80px;
+            color: #ff3d71;
+            animation: heartbeat 1.2s infinite;
+            text-shadow: 0 0 30px rgba(255, 61, 113, 0.3);
             display: inline-block;
-        }
-        
-        .btn {
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
-        }
-        
-        .btn:hover {
-            background-color: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+            background: linear-gradient(45deg, #ff3d71, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform-origin: center;
         }
         
         .petals {
@@ -77,29 +74,41 @@
         
         .petal {
             position: absolute;
-            background-color: #ffb6c1;
-            border-radius: 50% 0 50% 50%;
-            opacity: 0.7;
+            background: linear-gradient(45deg, #80d8ff, #40c4ff);
+            clip-path: polygon(50% 0%, 65% 25%, 90% 30%, 70% 45%, 80% 70%, 50% 55%, 20% 70%, 30% 45%, 10% 30%, 35% 25%);
+            opacity: 0.8;
             animation: falling linear infinite;
+            filter: drop-shadow(0 2px 4px rgba(64, 196, 255, 0.3));
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
         
         @keyframes heartbeat {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1) rotate(0deg); }
+            15% { transform: scale(1.25) rotate(5deg); }
+            30% { transform: scale(1.1) rotate(-5deg); }
+            45% { transform: scale(1.2) rotate(3deg); }
+            60% { transform: scale(1.05) rotate(-2deg); }
+            100% { transform: scale(1) rotate(0deg); }
         }
         
         @keyframes falling {
-            to {
-                transform: translateY(100vh) rotate(360deg);
-            }
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0.2; }
+        }
+
+        .special-text {
+            color: #ff4081;
+            font-weight: 500;
+            text-decoration: underline wavy #ff80ab;
+            animation: textGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            50% { text-shadow: 0 0 10px rgba(255, 64, 129, 0.4); }
         }
     </style>
 </head>
@@ -107,59 +116,53 @@
     <div class="petals" id="petals"></div>
     
     <div class="container">
-        <h1>亲爱的<span id="name">你</span></h1>
+        <h1>致<span style="color: #ff3d71;">黄楚娴</span></h1>
         <p>
-            遇见你是我生命中最美好的意外<br>
-            你的笑容像阳光一样温暖我的心<br>
-            和你在一起的每一刻都让我感到幸福
+            遇见你是我最幸福的事，和你在一起是最甜的，无论发生什么事，<br>
+            希望你都不会离开我。缘分让我们相遇，我们就要彼此珍惜，<br>
+            彼此爱护，共同成长。
         </p>
-        <div class="heart">❤</div>
+        <div class="heart-container">
+            <div class="heart">♥</div>
+        </div>
         <p>
-            我想对你说...<br>
-            我<span style="color: #e74c3c; font-weight: bold;">喜欢你</span>
+            从我们相识的那一刻起，你便成为我世界里的灯塔。<br>
+            我不能把整个世界都给你，但可以给你我的全世界。<br>
+            <span class="special-text">喜欢你的陪伴</span>，和你在一起的每时每刻都充满幸福。<br>
+            不知从何时起，喜欢你已成为我的习惯，<br>
+            愿这习惯能延续<span class="special-text">一辈子</span>...
         </p>
-        <button class="btn" onclick="changeName()">点击这里</button>
     </div>
 
     <script>
-        // 创建花瓣
         function createPetals() {
-            const petalsContainer = document.getElementById('petals');
-            const petalCount = 15;
+            const container = document.getElementById('petals');
+            const count = 28;
             
-            for (let i = 0; i < petalCount; i++) {
+            for(let i=0; i<count; i++) {
                 const petal = document.createElement('div');
-                petal.classList.add('petal');
+                petal.className = 'petal';
                 
-                // 随机大小
-                const size = Math.random() * 15 + 5;
-                petal.style.width = `${size}px`;
-                petal.style.height = `${size}px`;
+                const size = Math.random() * 24 + 12;
+                const left = Math.random() * 100;
+                const duration = Math.random() * 8 + 6;
+                const delay = Math.random() * 5;
+                const blur = Math.random() * 3 + 1;
                 
-                // 随机位置
-                petal.style.left = `${Math.random() * 100}%`;
-                petal.style.top = `${Math.random() * -20}vh`;
+                petal.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${left}%;
+                    animation-duration: ${duration}s;
+                    animation-delay: ${delay}s;
+                    filter: blur(${blur}px);
+                    opacity: ${Math.random() * 0.6 + 0.2};
+                `;
                 
-                // 随机动画持续时间
-                const duration = Math.random() * 10 + 5;
-                petal.style.animationDuration = `${duration}s`;
-                
-                // 随机延迟
-                petal.style.animationDelay = `${Math.random() * 5}s`;
-                
-                petalsContainer.appendChild(petal);
+                container.appendChild(petal);
             }
         }
-        
-        // 更改名字
-        function changeName() {
-            const name = prompt("请输入你的名字", "亲爱的");
-            if (name) {
-                document.getElementById('name').textContent = name;
-            }
-        }
-        
-        // 页面加载后创建花瓣
+
         window.onload = createPetals;
     </script>
 </body>
